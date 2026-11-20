@@ -1,0 +1,14 @@
+# Build outputs
+*.o
+*.exe
+test_runner
+
+# GCC coverage files
+*.gcda
+*.gcno
+*.gcov
+
+# Keep only Unity source files and license
+/unity/*
+!/unity/LICENSE.txt
+!/unity/src/
