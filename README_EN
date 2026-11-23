@@ -1,0 +1,93 @@
+## 1. Overview
+
+This is a program written in C that verifies the validity of VLAN and port configurations on network devices.
+We have implemented unit tests using Unity (ThrowTheSwitch) to perform boundary value analysis, edge-case testing, and code coverage measurement.
+
+## 2. Development Environment
+
+| Item | Details |
+|---|---|
+| Programming Language | C |
+| C Standard | C11 |
+| Compiler | GCC 16.2.0 |
+| Testing Framework | Unity |
+| Development Environment | MSYS2 UCRT64 |
+| Code Coverage Measurement | gcov |
+
+Unity commit: 54f864c
+
+## 3. Implemented Features
+
+### VLAN ID Validation
+- Valid VLAN ID range: 1–4094
+- Validation of multiple VLAN IDs using an array
+- Referencing array elements using pointers
+- NULL pointer check
+
+### VLAN ID List Validation
+- Management of VLAN IDs and the number of elements using a structure
+- Stores up to 16 VLAN IDs
+- Array bounds check
+- Duplicate VLAN ID detection
+
+### Port Configuration Validation
+- Managing port modes using enums
+- ACCESS mode: Specify one VLAN ID
+- TRUNK mode: Specify 1–16 VLAN IDs
+- Rejecting undefined port modes
+
+*The port configuration rules are learning specifications defined for this project.
+
+## 4. Test Design
+
+We use Unity to automatically run unit tests.
+
+Main Test Criteria:
+- Normal and abnormal cases
+- Boundary Value Analysis
+- Array and pointer verification
+- NULL pointer verification
+- Structure and enum verification
+- Array capacity limits and overflows
+- ACCESS / TRUNK conditional branching
+
+## 5. Test Results
+
+| Item | Result |
+|---|---:|
+| Number of Test Cases | 40 |
+| Passed | 40 |
+| Failed | 0 |
+
+### Code Coverage
+
+Measurement results using GCC gcov:
+
+| Metric | Result |
+|---|---:|
+| Line Coverage | 100% (38/38) |
+| Branches Executed | 100% (29/29) |
+| Branches Taken at Least Once | 100% (29/29) |
+| Calls Executed | 100% (4/4) |
+
+Target: config_validator.c
+
+*Note: 100% coverage does not guarantee that the program is free of defects.
+
+## 6. Build and Execution Instructions
+
+### Compile
+
+```bash
+gcc -std=c11 -Wall -Wextra -I. config_validator.c test_config_validator.c unity/src/unity.c -o test_runner
+```
+### Run
+
+```bash
+./test_runner
+```
+
+## 7. Project Limitations
+This project is intended for unit testing on a host environment.
+
+We have not performed configuration deployment to actual network devices, hardware verification, or network communication testing.
