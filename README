@@ -74,6 +74,12 @@ Target: config_validator.c
 
 *Note: 100% coverage does not guarantee that the program is free of defects.
 
+### Static analyzer
+```bash
+gcc -std=c11 -Wall -Wextra -fanalyzer -I. -c config_validator.c -o config_validator_analyzer.o
+```
+Confirmed nothing is displayed.
+
 ## 6. Build and Execution Instructions
 
 ### Compile

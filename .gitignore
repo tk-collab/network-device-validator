@@ -12,3 +12,5 @@ test_runner
 /unity/*
 !/unity/LICENSE.txt
 !/unity/src/
+
+/analyzer_demo.c
