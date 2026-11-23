@@ -69,6 +69,7 @@ Function: `is_valid_vlan_id_list()`
 | TC22 | VLAN IDs 1?16, count=16 | true | Maximum capacity |
 | TC23 | NULL | false | NULL pointer |
 | TC40 | {100, 100}, count=2 | false | Duplicate VLAN IDs |
+| TC41 | {100, 200, 100}, count=3 | false | Non-adjacent duplicate VLAN IDs |
 
 ### 2.5 Port Mode Validation
 

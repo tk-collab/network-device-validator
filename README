@@ -19,7 +19,7 @@ Unity commit: 54f864c
 ## 3. Implemented Features
 
 ### VLAN ID Validation
-- Valid VLAN ID range: 1â€“4094
+- Valid VLAN ID range: 1â€?4094
 - Validation of multiple VLAN IDs using an array
 - Referencing array elements using pointers
 - NULL pointer check
@@ -33,7 +33,7 @@ Unity commit: 54f864c
 ### Port Configuration Validation
 - Managing port modes using enums
 - ACCESS mode: Specify one VLAN ID
-- TRUNK mode: Specify 1â€“16 VLAN IDs
+- TRUNK mode: Specify 1â€?16 VLAN IDs
 - Rejecting undefined port modes
 
 *The port configuration rules are learning specifications defined for this project.
@@ -55,8 +55,8 @@ Main Test Criteria:
 
 | Item | Result |
 |---|---:|
-| Number of Test Cases | 40 |
-| Passed | 40 |
+| Number of Test Cases | 41 |
+| Passed | 41 |
 | Failed | 0 |
 
 ### Code Coverage

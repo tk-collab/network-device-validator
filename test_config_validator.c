@@ -342,6 +342,16 @@ void test_duplicate_vlan_ids(void)
     TEST_ASSERT_FALSE(is_valid_vlan_id_list(&list));
 }
 
+void test_non_adjacent_duplicate_vlan_ids(void)
+{
+    vlan_id_list_t list = {
+        .vlan_ids = {100, 200, 100},
+        .count = 3
+    };
+
+    TEST_ASSERT_FALSE(is_valid_vlan_id_list(&list));
+}
+
 int main(void)
 {
     UNITY_BEGIN();
@@ -386,6 +396,7 @@ int main(void)
     RUN_TEST(test_port_config_invalid_mode);
     RUN_TEST(test_port_config_null_pointer);
     RUN_TEST(test_duplicate_vlan_ids);
-
+    RUN_TEST(test_non_adjacent_duplicate_vlan_ids);
+    
     return UNITY_END();
 }
