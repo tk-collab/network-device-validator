@@ -20,6 +20,16 @@ bool are_vlan_ids_valid(const int *vlan_ids, size_t count)
         {
             return false;
         }
+
+        const int *next = current + 1;
+
+        for (size_t j = i + 1; j < count; j++, next++)
+        {
+            if (*current == *next)
+            {
+                return false;
+            }
+        }
     }
 
     return true;

@@ -57,7 +57,8 @@ Function: `are_vlan_ids_valid()`
 
 Function: `is_valid_vlan_id_list()`
 
-Maximum capacity: 16 VLAN IDs.
+- Maximum capacity: 16 VLAN IDs.
+- Duplicate VLAN IDs are not allowed.
 
 | ID | Input | Expected | Test Purpose |
 |---|---|---|---|
@@ -67,6 +68,7 @@ Maximum capacity: 16 VLAN IDs.
 | TC21 | count=17 | false | Exceeds capacity |
 | TC22 | VLAN IDs 1?16, count=16 | true | Maximum capacity |
 | TC23 | NULL | false | NULL pointer |
+| TC40 | {100, 100}, count=2 | false | Duplicate VLAN IDs |
 
 ### 2.5 Port Mode Validation
 

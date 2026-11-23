@@ -332,6 +332,16 @@ void test_port_config_null_pointer(void)
     TEST_ASSERT_FALSE(is_valid_port_config(NULL));
 }
 
+void test_duplicate_vlan_ids(void)
+{
+    vlan_id_list_t list = {
+        .vlan_ids = {100, 100},
+        .count = 2
+    };
+
+    TEST_ASSERT_FALSE(is_valid_vlan_id_list(&list));
+}
+
 int main(void)
 {
     UNITY_BEGIN();
@@ -375,6 +385,7 @@ int main(void)
     RUN_TEST(test_trunk_port_exceeds_capacity);
     RUN_TEST(test_port_config_invalid_mode);
     RUN_TEST(test_port_config_null_pointer);
+    RUN_TEST(test_duplicate_vlan_ids);
 
     return UNITY_END();
 }
