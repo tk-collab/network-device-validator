@@ -80,17 +80,29 @@ gcc -std=c11 -Wall -Wextra -fanalyzer -I. -c config_validator.c -o config_valida
 ```
 Confirmed nothing is displayed.
 
-## 6. Build and Execution Instructions
+## 6. Build and Test
+GNU Make is used to automate the build, testing,
+coverage measurement, and static analysis processes.
 
-### Compile
-
+### Build
 ```bash
-gcc -std=c11 -Wall -Wextra -I. config_validator.c test_config_validator.c unity/src/unity.c -o test_runner
+make
 ```
-### Run
-
+### Run Unit Tests
 ```bash
-./test_runner
+make test
+```
+### Code Coverage
+```bash
+make coverage
+```
+### Static Analysis
+```bash
+make analyze
+```
+### Clean Generated Files
+```bash
+make clean
 ```
 
 ## 7. Project Limitations
