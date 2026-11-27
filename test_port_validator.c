@@ -61,6 +61,11 @@ void test_port_number_symbol_is_invalid(void)
     TEST_ASSERT_FALSE(is_valid_port_number("44#3"));
 }
 
+void test_port_number_large_numeric_value_is_invalid(void)
+{
+    TEST_ASSERT_FALSE(is_valid_port_number("4294967297"));
+}
+
 int main(void)
 {
     UNITY_BEGIN();
@@ -75,6 +80,7 @@ int main(void)
     RUN_TEST(test_port_number_uppercase_letter_is_invalid);
     RUN_TEST(test_port_number_lowercase_letter_is_invalid);
     RUN_TEST(test_port_number_symbol_is_invalid);
-
+    RUN_TEST(test_port_number_large_numeric_value_is_invalid);
+    
     return UNITY_END();
 }
